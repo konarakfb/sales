@@ -367,12 +367,12 @@ document.getElementById("pdfBtn").onclick = async function () {
     );
 
     const canvas = await html2canvas(clone, {
-        scale: 1,
+        scale: 2.8,
         backgroundColor: "#fff",
         useCORS: true
     });
 
-    const imgData = canvas.toDataURL("image/jpeg", 0.72);
+    const imgData = canvas.toDataURL("image/jpeg", 0.88);
     const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
 
     const pageWidth = 297;
@@ -396,7 +396,7 @@ document.getElementById("pdfBtn").onclick = async function () {
                 0, 0, canvas.width, sliceCanvas.height
             );
 
-            const sliceImg = sliceCanvas.toDataURL("image/jpeg", 0.72);
+            const sliceImg = sliceCanvas.toDataURL("image/jpeg", 0.88);
             const sliceHeightMm = sliceCanvas.height / pxPerMm;
 
             if (y > 0) pdf.addPage("a4", "landscape");
