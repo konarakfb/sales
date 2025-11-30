@@ -381,7 +381,7 @@ document.getElementById("pdfBtn").onclick = async function () {
     const imgHeightMm = canvas.height / pxPerMm;
 
     if (imgHeightMm <= pageHeight) {
-        pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, imgHeightMm);
+        pdf.addImage(imgData, "JPEG", 10, 10, pageWidth - 20, imgHeightMm - 20);
     } else {
         let y = 0;
         const slicePx = pageHeight * pxPerMm;
@@ -400,7 +400,7 @@ document.getElementById("pdfBtn").onclick = async function () {
             const sliceHeightMm = sliceCanvas.height / pxPerMm;
 
             if (y > 0) pdf.addPage("a4", "landscape");
-            pdf.addImage(sliceImg, "JPEG", 0, 0, pageWidth, sliceHeightMm);
+            pdf.addImage(sliceImg, "JPEG", 10, 10, pageWidth - 20, sliceHeightMm - 20);
 
             y += slicePx;
         }
